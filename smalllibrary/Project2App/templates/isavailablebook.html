@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IsAvailable Book</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN_10</th>
+                <th>Author</th>
+                <th>Binding</th>
+                <th>Year</th>
+                <th>Publisher</th>
+                <th>IsAvailable</th>
+                <th>Date - Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.book.title }}</td>
+                    <td>{{ transaction.book.isbn_10 }}</td>
+                    <td>{{ transaction.book.author }}</td>
+                    <td>{{ transaction.book.binding }}</td>
+                    <td>{{ transaction.book.year }}</td>
+                    <td>{{ transaction.book.publisher }}</td>
+                    <td>{{ transaction.book.isavailable }}</td>
+                    <td>{{ transaction.book.created }}</td>
+                    <td><a href="(% url 'list_book' pk=book.id"></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

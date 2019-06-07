@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from Project2App.views import list_book, borrow_book, transaction_book, isavailable_book
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('example/', include('example_app.urls', namespace='example_app')),
+    path('listbook/', list_book, name='list_book'),
+    path('borrowedbook/', borrow_book, name='borrow_book'),
+    path('transactionedbook/', transaction_book, name='transaction_book'),
 ]
